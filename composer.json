@@ -28,5 +28,8 @@
         "psr/http-client": "^1.0",
         "php-http/client-common": "^2.5"
     },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
     "minimum-stability": "dev"
 }
