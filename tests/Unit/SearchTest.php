@@ -12,8 +12,15 @@ class SearchTest extends TestCase
     {
         $client = new Client();
 
-        $response = $client->search('12345678');
+        $response = $client->search('bardan');
+
+        $data = $response->json();
         
-        $this->assertArrayHasKey('resultatenHR', $response->json());
+        $this->assertArrayHasKey('resultatenHR', $data);
+
+        $this->assertContains('76274160', array_map(function($result) {
+            return $result['dossiernummer'];
+        }, $data['resultatenHR']));
+
     }
 }
